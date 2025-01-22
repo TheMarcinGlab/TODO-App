@@ -8,42 +8,39 @@
         [(ngModel)]="newTodoDescription" 
         placeholder="Enter a new task"
       />
+      <select [(ngModel)]="newTodoPriority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
       <button (click)="addTodo()">Add Task</button>
     </div>
   
-    <h2>Active Tasks</h2>
-<ul>
-  <ng-container *ngFor="let todo of todos">
-    <li *ngIf="!todo.completed">
-      <input 
-        type="checkbox" 
-        (change)="toggleComplete(todo)" 
-      />
-      {{ todo.description }}
-    </li>
-  </ng-container>
-</ul>
-
-    
-
-
+    <!-- Filtry -->
+    <div class="filters">
+      <button (click)="filter = 'all'">All</button>
+      <button (click)="filter = 'active'">Active</button>
+      <button (click)="filter = 'completed'">Completed</button>
+    </div>
   
-    <!-- Lista ukończonych zadań -->
-
-    <h2>Completed Tasks</h2>
+    <!-- Lista zadań -->
     <ul>
-      <ng-container *ngFor="let todo of todos">
-        <li *ngIf="todo.completed">
-          <input 
-            type="checkbox" 
-            (change)="toggleComplete(todo)" 
-          />
-          <s>{{ todo.description }}</s>
+      <ng-container *ngFor="let todo of getFilteredTodos()">
+        <li [ngClass]="todo.priority">
+          <div *ngIf="editTodoId !== todo.id; else editMode">
+            <input type="checkbox" (change)="toggleComplete(todo)" [checked]="todo.completed" />
+            <span>{{ todo.description }}</span>
+            <span class="priority">{{ todo.priority }}</span>
+            <button (click)="startEditing(todo)">Edit</button>
+            <button (click)="deleteTodo(todo)">Delete</button>
+          </div>
+          <ng-template #editMode>
+            <input [(ngModel)]="editedDescription" type="text" placeholder="Edit task" />
+            <button (click)="saveEdit()">Save</button>
+            <button (click)="cancelEdit()">Cancel</button>
+          </ng-template>
         </li>
       </ng-container>
     </ul>
-    
-
-
   </div>
   

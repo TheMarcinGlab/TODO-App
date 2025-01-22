@@ -1,89 +1,82 @@
-/* Styl ogólny aplikacji */
 .todo-app {
     font-family: 'Arial', sans-serif;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .todo-app h1 {
+  h1 {
     text-align: center;
     color: #333;
   }
   
-  .todo-app h2 {
-    margin-top: 20px;
-    color: #555;
-  }
-  
-  /* Formularz dodawania zadania */
   .add-todo {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 20px;
   }
   
-  .add-todo input {
-    flex: 1;
+  .add-todo input,
+  .add-todo select {
     padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     font-size: 16px;
+    margin-right: 10px;
+    flex: 1;
   }
   
   .add-todo button {
     padding: 10px 20px;
-    border: none;
     background-color: #007bff;
-    color: white;
-    font-size: 16px;
+    color: #fff;
+    border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
   }
   
   .add-todo button:hover {
     background-color: #0056b3;
   }
   
-  /* Lista zadań */
-  .task-list {
+  .filters {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .filters button {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  ul {
     list-style: none;
     padding: 0;
   }
   
-  .task-item {
+  li {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #eee;
   }
   
-  .task-item:last-child {
-    border-bottom: none;
+  .priority {
+    margin-left: 10px;
+    font-weight: bold;
   }
   
-  .task-item input {
-    margin-right: 10px;
-    cursor: pointer;
+  li.low {
+    background-color: #d4edda;
   }
   
-  .task-item span {
-    font-size: 16px;
+  li.medium {
+    background-color: #ffeeba;
   }
   
-  .completed-task {
-    text-decoration: line-through;
-    color: #888;
-  }
-  
-  /* Styl dla ukończonych zadań */
-  .task-list.completed {
-    opacity: 0.8;
+  li.high {
+    background-color: #f8d7da;
   }
   
