@@ -1,0 +1,89 @@
+/* Styl ogólny aplikacji */
+.todo-app {
+    font-family: 'Arial', sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .todo-app h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .todo-app h2 {
+    margin-top: 20px;
+    color: #555;
+  }
+  
+  /* Formularz dodawania zadania */
+  .add-todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .add-todo input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .add-todo button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-todo button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Lista zadań */
+  .task-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .task-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .task-item:last-child {
+    border-bottom: none;
+  }
+  
+  .task-item input {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .task-item span {
+    font-size: 16px;
+  }
+  
+  .completed-task {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  /* Styl dla ukończonych zadań */
+  .task-list.completed {
+    opacity: 0.8;
+  }
+  
